@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace EQWaypoint
 {
@@ -45,6 +46,25 @@ namespace EQWaypoint
 
 			return BitConverter.ToInt16(bytes, 0);
 		}
+
+        /* Thanks the AION memory project for this function code
+         * https://www.assembla.com/spaces/AionMemory
+         */
+        public string getString(int length, bool IsUnicode)
+        {
+                
+            byte[] buffer = new byte[length];
+            WindowsAPI.Peek(this.mProcess, this.mAddress, buffer);
+            string ret;
+            UnicodeEncoding enc = new UnicodeEncoding();
+            if (IsUnicode)
+                ret = enc.GetString(buffer);
+            else
+                ret = Encoding.UTF8.GetString(buffer);
+            if (ret.IndexOf('\0') != -1)
+                ret = ret.Remove(ret.IndexOf('\0'));
+            return ret;
+        }
 
 		public void SetValue(float val)
 		{
