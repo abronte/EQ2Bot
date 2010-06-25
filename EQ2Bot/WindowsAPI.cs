@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace EQWaypoint
+namespace EQ2Bot
 {
 	public class WindowsAPI
 	{

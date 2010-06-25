@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace EQWaypoint
+namespace EQ2Bot
 {
 
 	public class MemoryLoc
