@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Data;
 using System.Windows.Forms;
 
-namespace EQWaypoint
+namespace EQ2Bot
 {
     class EQmemory
     {
